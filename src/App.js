@@ -1,6 +1,7 @@
 import ThemeContextProvider from "./contexts/ThemeContext";
 import AuthContextProvider  from "./contexts/AuthContext";
 import ThemeToggle from "./components/ThemeToggle";
+import BookContextProvider from "./contexts/BookContext";
 
 const { default: BookList } = require("./components/BookList");
 const { default: Navbar } = require("./components/Navbar");
@@ -11,7 +12,9 @@ function App() {
       <ThemeContextProvider>
        <AuthContextProvider>
            <Navbar/>
-           <BookList />
+           <BookContextProvider>
+             <BookList />
+           </BookContextProvider>
            <ThemeToggle/>
        </AuthContextProvider>
       </ThemeContextProvider>
